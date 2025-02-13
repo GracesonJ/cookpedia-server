@@ -1,8 +1,8 @@
-const mangoose = require("mongoose")
+const mongoose = require("mongoose")
 
 const connectionString = process.env.CONNECTIONSTRING
 
-mangoose.connect(connectionString).then((res)=>{
+mongoose.connect(connectionString).then((res)=>{
     console.log(`MongoDB Atlas Successfully Connected with Cookpedia Server`);
     
 }).catch(err=>{
