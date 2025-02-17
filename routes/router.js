@@ -13,5 +13,8 @@ router.post("/add-testimony", testimonyController.addTestimonyController)
 // register
 router.post("/register", userController.addUserController)
 
+// Login
+router.post("/login", userController.loginController)
+
 
 module.exports = router
