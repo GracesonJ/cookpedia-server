@@ -11,3 +11,30 @@ exports.getAllRecipeController = async (req, res)=>{
     }
     
 }
+
+// get recipes
+exports.getARecipeController = async (req, res)=>{
+    console.log(`Inside Get A Recipe Controller`);
+    // get dynamic values from url
+    const {id} = req.params
+
+    try {
+        const recipeDetails = await recipes.findById({_id:id})
+        res.status(200).json(recipeDetails)
+    } catch (error) {
+        res.status(401).json(error)
+    }
+}
+
+// related Recipe controller
+exports.relatedRecipeController = async (req, res)=>{
+    console.log(`Inside RelatedRecipeController`);
+    const cuisine = req.query.cuisine
+    try {
+        const allRelatedRecipes = await recipes.find({cuisine})
+        res.status(200).json(allRelatedRecipes)
+    } catch (error) {
+        res.status(401).json(error)
+    }
+    
+}
