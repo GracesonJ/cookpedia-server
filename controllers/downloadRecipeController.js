@@ -27,3 +27,18 @@ exports.addToDownloadRecipeController = async (req,res)=>{
        res.status(401).json(err)        
     }
 }
+
+//get user download recipes
+exports.getUserDownloadListController = async (req,res)=>{
+    console.log("Inside getUserDownloadListController");
+    //get userid from jwtmiddleware
+    const userId = req.userId
+    // find documents with userid from model
+    try{
+       const allUserDownloads = await downloadRecipes.find({userId})
+       res.status(200).json(allUserDownloads)
+    }catch(err){
+       res.status(401).json(err)
+    }
+   }
+   

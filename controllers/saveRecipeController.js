@@ -21,3 +21,30 @@ exports.addToSaveRecipeController = async (req,res)=>{
         res.status(401).json(err)
     }
 }
+
+//user recipe collection get - authorised user
+exports.getUserSavedRecipeController = async (req,res)=>{
+    console.log("Inside getUserSavedRecipeController");
+    // get userid to get user recipe collection
+    const userId =  req.userId
+    try{
+        const userRecipeCollection = await saveRecipes.find({userId})
+        res.status(200).json(userRecipeCollection)
+    }catch(err){
+        res.status(401).json(err)
+    }
+} 
+
+//remove save recipe -  authorised user
+exports.removeSaveRecipeController = async (req,res)=>{
+    console.log("Inside removeSaveRecipeController");
+    // 1. get item _id to be removed from req params
+    const {id} = req.params
+    // 2. remove item from collection using findByIdandDelete
+    try{
+        const removeSaveRecipe = await saveRecipes.findByIdAndDelete({_id:id})
+        res.status(200).json(removeSaveRecipe)
+    }catch(err){
+        res.status(401).json(err)
+    }
+}
