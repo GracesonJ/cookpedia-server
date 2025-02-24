@@ -44,4 +44,16 @@ router.get("/user-downloads",jwtMiddleware,downloadRecipeController.getUserDownl
 //edit-user
 router.post("/user/edit",jwtMiddleware,userController.editUserController)
 
+//all-user
+router.get("/all-users", jwtMiddleware, userController.getAllUsersController)
+
+//all-downloadliat
+router.get("/download-list",jwtMiddleware,downloadRecipeController.getAllDownloadListController)
+
+//get-testmony
+router.get("/all-feedback", jwtMiddleware, testimonyController.getAllFeedbackController)
+
+//update-testmony
+router.get("/feedback/:id/update",jwtMiddleware,testimonyController.updateFeedbackStatusContoller)
+
 module.exports = router
