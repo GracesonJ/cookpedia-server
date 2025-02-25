@@ -56,4 +56,10 @@ router.get("/all-feedback", jwtMiddleware, testimonyController.getAllFeedbackCon
 //update-testmony
 router.get("/feedback/:id/update",jwtMiddleware,testimonyController.updateFeedbackStatusContoller)
 
+//get-apporve-testmony
+router.get("/all-approve-feedback",testimonyController.getAllApprovedFeedbackController)
+
+//add recipes
+router.post("/add-recipe",jwtMiddleware,recipeController.addRecipeController)
+
 module.exports = router
