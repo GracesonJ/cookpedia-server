@@ -36,30 +36,36 @@ router.post("/recipe/:id/save", jwtMiddleware, saveRecipeController.addToSaveRec
 router.get("/get-save-recipes", jwtMiddleware, saveRecipeController.getUserSavedRecipeController)
 
 //delete user saved recipe
-router.delete("/save-recipes/:id/remove",jwtMiddleware,saveRecipeController.removeSaveRecipeController)
+router.delete("/save-recipes/:id/remove", jwtMiddleware, saveRecipeController.removeSaveRecipeController)
 
 //get user download recipe
-router.get("/user-downloads",jwtMiddleware,downloadRecipeController.getUserDownloadListController)
+router.get("/user-downloads", jwtMiddleware, downloadRecipeController.getUserDownloadListController)
 
 //edit-user
-router.post("/user/edit",jwtMiddleware,userController.editUserController)
+router.post("/user/edit", jwtMiddleware, userController.editUserController)
 
 //all-user
 router.get("/all-users", jwtMiddleware, userController.getAllUsersController)
 
 //all-downloadliat
-router.get("/download-list",jwtMiddleware,downloadRecipeController.getAllDownloadListController)
+router.get("/download-list", jwtMiddleware, downloadRecipeController.getAllDownloadListController)
 
 //get-testmony
 router.get("/all-feedback", jwtMiddleware, testimonyController.getAllFeedbackController)
 
 //update-testmony
-router.get("/feedback/:id/update",jwtMiddleware,testimonyController.updateFeedbackStatusContoller)
+router.get("/feedback/:id/update", jwtMiddleware, testimonyController.updateFeedbackStatusContoller)
 
 //get-apporve-testmony
-router.get("/all-approve-feedback",testimonyController.getAllApprovedFeedbackController)
+router.get("/all-approve-feedback", testimonyController.getAllApprovedFeedbackController)
 
 //add recipes
-router.post("/add-recipe",jwtMiddleware,recipeController.addRecipeController)
+router.post("/add-recipe", jwtMiddleware, recipeController.addRecipeController)
+
+//edit recipes
+router.put("/recipe/:id/edit", jwtMiddleware, recipeController.updateRecipeController)
+
+//delete recipe 
+router.delete("/recipes/:id/remove", jwtMiddleware, recipeController.removeRecipeController)
 
 module.exports = router
